@@ -1,43 +1,14 @@
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
 import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
+        String[] strs = GetInput.getInputData();
+        ScratchCard[] cards = new ScratchCard[6];
 
-        // step 1: create a file object
-        File f = new File("src/input_file");
-
-        String fileData = "";
-        try {
-            Scanner s = new Scanner(f);
-            while (s.hasNextLine()) {
-                String currentLine = s.nextLine();
-                fileData += currentLine + "\n";
-            }
-
-            // a String array where every item in the array is a line from the file
-            String[] fileArray = fileData.split("\n");
-
-            for (String line : fileArray) {
-                // split by space, now we have a list of String numbers
-                String[] stringNumbers = line.split(" ");
-
-                // create an array of integers
-                int[] numbers = new int[stringNumbers.length];
-
-                // convert string numbers into integers
-                for (int i = 0; i < numbers.length; i++) {
-                    numbers[i] = Integer.parseInt(stringNumbers[i]);
-                }
-            }
+        for (int i = 0; i < strs.length; i++) {
+            cards[i] = new ScratchCard(strs[i]);
+            System.out.println(cards[i].getCARD_NUMBER());
+//            System.out.println(Arrays.toString(cards[i].getWINNING_NUMBERS()));
         }
-        catch (FileNotFoundException fe) {
-            System.out.println("File was not found");
-            System.exit(1);
-        }
-
     }
 }
