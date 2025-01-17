@@ -48,4 +48,32 @@ public class ScratchCard {
     public int[] getNUMBERS() {
         return NUMBERS;
     }
+
+    public int calculatedPoints(){
+        int points = 0;
+        boolean firstPoint = true;
+        for(int winningNumbers: WINNING_NUMBERS){
+            for(int numbers: NUMBERS){
+                if(winningNumbers == numbers && firstPoint){
+                    firstPoint = false;
+                    points += 1;
+                }
+                else if(winningNumbers == numbers){
+                    points *= 2;
+                }
+            }
+        }
+        return points;
+    }
+    public int calculatedCards(){
+        int cards = 0;
+        for(int winningNumbers: WINNING_NUMBERS){
+            for(int numbers: NUMBERS){
+                if(winningNumbers == numbers){
+                    cards += 1;
+                }
+            }
+        }
+        return cards;
+    }
 }
