@@ -8,7 +8,8 @@ public class Main {
         for (int i = 0; i < strs.length; i++) {
             cards[i] = new ScratchCard(strs[i]);
             System.out.println(cards[i].getCARD_NUMBER());
-//            System.out.println(Arrays.toString(cards[i].getWINNING_NUMBERS()));
+            System.out.println(Arrays.toString(cards[i].getWINNING_NUMBERS()));
+            System.out.println(Arrays.toString(cards[i].getNUMBERS()));
         }
     }
 }

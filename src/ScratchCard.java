@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class ScratchCard {
     private int CARD_NUMBER;
     private int[] WINNING_NUMBERS;
@@ -10,16 +12,25 @@ public class ScratchCard {
         CARD_NUMBER = Integer.parseInt(tempCardNumber);
 
 
-        String temp2 = card.substring(card.indexOf(":") + 1);
-        String[] temp3 = temp2.split("\\|");
+        String temp2 = card.substring(card.indexOf(":") + 2);
+        String[] temp3 = temp2.split(" \\| ");
         temp3[0] = temp3[0].replaceAll("  ", " ");
-        String[] temp4 = temp3[0].split(" ");
-        for(int i = 0; i < temp4.length; i ++){
-            temp4[1] = temp4[i].replaceAll(" ", "");
+        while(temp3[0].indexOf(" ") == 0){
+            temp3[0] = temp3[0].substring(1);
         }
+        String[] temp4 = temp3[0].split(" ");
         WINNING_NUMBERS = new int[temp4.length];
         for(int i = 0; i < temp4.length; i ++){
-                WINNING_NUMBERS[i] = Integer.parseInt(temp4[i]);
+            WINNING_NUMBERS[i] = Integer.parseInt(temp4[i]);
+        }
+        temp3[1] = temp3[1].replaceAll("  ", " ");
+        while(temp3[1].indexOf(" ") == 0){
+            temp3[1] = temp3[1].substring(1);
+        }
+        String[] temp5 = temp3[1].split(" ");
+        NUMBERS = new int[temp5.length];
+        for(int i = 0; i < temp5.length; i ++){
+            NUMBERS[i] = Integer.parseInt(temp5[i]);
         }
 
 
